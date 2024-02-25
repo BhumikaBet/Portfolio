@@ -698,7 +698,7 @@ a.btn:active {
 
 
 .icons {
-  position: fixed;
+  position:relative;
   bottom: 5%;
   left: 8%;
   padding: 2px;
