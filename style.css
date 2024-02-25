@@ -20,7 +20,7 @@ video {
   position: fixed;
   top: 0;
   left: 0;
-  max-width: 100%;
+ max-width: 100;
   height: 180%;
   z-index: -1; /* Place behind content */
 }
@@ -698,9 +698,10 @@ a.btn:active {
 
 
 .icons {
-  position: relative;
+  position: fixed;
   bottom: 5%;
-  left: 1%;
+  left: 8%;
+  padding: 2px;
  
 }
 .icon span{
@@ -738,6 +739,54 @@ a.btn:active {
 
   .left div .content span {
     font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* Adjust styles for screens with a maximum width of 768px */
+  .header img {
+    width: 100%; /* Make the header image responsive */
+  }
+
+  .hero {
+    transform: translate(0%, -50%); /* Adjust hero positioning on smaller screens */
+  }
+
+  .about-center {
+    grid-template-columns: 1fr; /* Change about section layout to a single column */
+  }
+
+  .left img {
+    max-width: 100%; /* Make the about image responsive */
+  }
+
+  .skills-center {
+    grid-template-columns: 1fr; /* Change skills section layout to a single column */
+    padding: 2rem; /* Add padding to skills center on smaller screens */
+  }
+
+  .skills-box:not(:last-child) {
+    margin-bottom: 1rem; /* Adjust spacing between skills boxes */
+  }
+
+  .right h1 {
+    font-size: 2rem; /* Decrease font size for better readability */
+  }
+
+  .right p {
+    font-size: 1.4rem; /* Decrease font size for better readability */
+  }
+
+  .education.active * {
+    display: block; /* Display education boxes on smaller screens */
+  }
+
+  .education .box-container {
+    padding-left: 0; /* Remove left padding for education box container */
+  }
+
+  .contact-center {
+    grid-template-columns: 1fr; /* Change contact section layout to a single column */
+    margin-top: 5rem; /* Adjust top margin on contact section */
   }
 }
 
