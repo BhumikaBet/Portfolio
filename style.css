@@ -20,8 +20,9 @@ video {
   position: fixed;
   top: 0;
   left: 0;
-  max-width: 100%;
-  height: 180%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
   z-index: -1; /* Place behind content */
 }
 
@@ -29,10 +30,20 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
-  background-color: #fff;
+  
   color: #000;
   position: relative;
   z-index: 1;
+}
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Adjust the transparency as needed */
+  z-index: -1; /* Place the overlay behind other content */
 }
 
 h1,
@@ -296,44 +307,7 @@ header.nav .nav-list ul li a.active {
   background-color: transparent;
 }
 
-@media only screen and (max-width: 996px) {
-  .hero {
-    transform: translate(10%, -50%);
-  }
-}
 
-@media only screen and (max-width: 768px) {
-  .hero h1 {
-    font-size: 4rem;
-  }
-}
-
-@media only screen and (max-width: 567px) {
-  .hero {
-    top: 35%;
-    transform: translate(10%, -50%);
-  }
-
-  .hero h3 {
-    font-size: 1.6rem;
-  }
-
-  .hero h1 {
-    font-size: 3rem;
-  }
-
-  .hero h4 {
-    font-size: 1.6rem;
-  }
-}
-
-
-
-@media only screen and (max-width: 567px) {
-  .icons {
-    display: none;
-  }
-}
 
 /* About */
 
@@ -358,7 +332,7 @@ header.nav .nav-list ul li a.active {
 }
 
 .title h1 {
-  font-size: 3rem;
+  font-size: 7rem;
   display: inline-block;
   position: relative;
   z-index: 0;
@@ -420,41 +394,7 @@ a.btn:active {
   transform: translateY(0px);
 }
 
-@media only screen and (max-width: 996px) {
-  .right h1 {
-    color: white;
-    font-size: 2rem;
-  }
 
-  .right p {
-    font-size: 1.5rem;
-  }
-
-  a.btn {
-    padding: 0.7rem 1.8rem;
-  }
-
-  .left img {
-    height: 40rem;
-    max-width: 25rem;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .about-center {
-    grid-template-columns: 1fr;
-    gap: 3rem 0rem;
-  }
-
-  .left {
-    text-align: center;
-  }
-
-  .left img {
-    height: 40rem;
-    max-width: 90%;
-  }
-}
 
 /* Services */
 
@@ -538,19 +478,23 @@ a.btn:active {
   margin-bottom: 2rem;
 }
 
-@media only screen and (max-width: 768px) {
-  .skills-center {
-    grid-template-columns: 1fr;
-  }
-}
+
 
 /* Teams */
 .heading{
   font-family: "Pacifico", cursive;
   font-size: 30px;
-  padding-left: 150px;
+  margin: 4rem 0 7rem 0;
+  text-align: center;
   color: white;
 }
+.heading span{
+  font-size: 3rem;
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+}
+
 .education .box-container {
   display: flex;
   align-items: center;
@@ -558,6 +502,9 @@ a.btn:active {
   flex-wrap: wrap;
   padding: 1rem 0;
   padding-left: 3rem;
+  background-color: rgba(0, 0, 0, 0.841);
+  border: 0.5px solid rgb(5, 5, 5);
+  border-radius:50px;
   
  
 }
@@ -568,10 +515,8 @@ a.btn:active {
 .education{
   width: 70%;
   height: 140%;
-  margin-left: 200px;
-  background-color: rgba(0, 0, 0, 0.841);
-  border: 0.5px solid white;
-  border-radius:50px;
+  margin-left: 40px;
+  
 }
 .box {
   opacity: 0;
@@ -583,14 +528,7 @@ a.btn:active {
   animation-delay: 0.5s;
 }
 
-@keyframes slideInLeft {
-  from {
-      transform: translateX(-100%);
-  }
-  to {
-      transform: translateX(0);
-  }
-}
+
 
 
 .education .box-container .box {
@@ -698,9 +636,9 @@ a.btn:active {
 
 
 .icons {
-  position:relative;
+  position: relative;
   bottom: 5%;
-  left: 8%;
+  left: 1%;
   padding: 2px;
  
 }
@@ -741,52 +679,141 @@ a.btn:active {
     font-size: 1.5rem;
   }
 }
+@keyframes slideInLeft {
+  from {
+      transform: translateX(-100%);
+  }
+  to {
+      transform: translateX(0);
+  }
+}
 @media only screen and (max-width: 768px) {
-  /* Adjust styles for screens with a maximum width of 768px */
-  .header img {
-    width: 100%; /* Make the header image responsive */
+  .skills-center {
+    grid-template-columns: 1fr;
   }
+}
 
-  .hero {
-    transform: translate(0%, -50%); /* Adjust hero positioning on smaller screens */
-  }
-
+@media only screen and (max-width: 768px) {
   .about-center {
-    grid-template-columns: 1fr; /* Change about section layout to a single column */
+    grid-template-columns: 1fr;
+    gap: 3rem 0rem;
+  }
+
+  .left {
+    text-align: center;
   }
 
   .left img {
-    max-width: 100%; /* Make the about image responsive */
+    height: 40rem;
+    max-width: 90%;
   }
+}
 
-  .skills-center {
-    grid-template-columns: 1fr; /* Change skills section layout to a single column */
-    padding: 2rem; /* Add padding to skills center on smaller screens */
-  }
-
-  .skills-box:not(:last-child) {
-    margin-bottom: 1rem; /* Adjust spacing between skills boxes */
-  }
-
+@media only screen and (max-width: 996px) {
   .right h1 {
-    font-size: 2rem; /* Decrease font size for better readability */
+    color: white;
+    font-size: 2rem;
   }
 
   .right p {
-    font-size: 1.4rem; /* Decrease font size for better readability */
+    font-size: 1.5rem;
   }
 
-  .education.active * {
-    display: block; /* Display education boxes on smaller screens */
+  a.btn {
+    padding: 0.7rem 1.8rem;
   }
 
-  .education .box-container {
-    padding-left: 0; /* Remove left padding for education box container */
-  }
-
-  .contact-center {
-    grid-template-columns: 1fr; /* Change contact section layout to a single column */
-    margin-top: 5rem; /* Adjust top margin on contact section */
+  .left img {
+    height: 40rem;
+    max-width: 25rem;
   }
 }
+
+@media only screen and (max-width: 996px) {
+  .hero {
+    transform: translate(10%, -50%);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 567px) {
+  .hero {
+    top: 35%;
+    transform: translate(10%, -50%);
+  }
+
+  .hero h3 {
+    font-size: 1.6rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero h4 {
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (max-width: 567px) {
+  .icons {
+    display: inline-block;
+  }
+}
+@media only screen and (max-width: 567px) {
+  .heading{
+    display:inline;
+  }
+}
+
+@media only screen and (max-width: 567px) {
+  .education .box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* Adjust padding as needed */
+    background-color: rgba(0, 0, 0, 0.841);
+    border: 0.5px solid white;
+    border-radius: 50px;
+  }
+
+  .education .box {
+    width: 100%;
+    margin: 1rem 0; /* Adjust margin as needed */
+    padding-left: 0; /* Remove left padding */
+    border-left: none; /* Remove left border */
+    text-align: center;
+  }
+
+  .education .heading {
+    margin: 1rem 0; /* Adjust margin as needed */
+    text-align: center;
+    color: white;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* Media query styles for mobile screens */
+  video#myVideo {
+    max-width: 100%; /* Apply max-width to the video element */
+  }
+}
+/* Adjust the video styling for mobile screens */
+@media only screen and (max-width: 567px) {
+  #myVideo {
+    width: 100%;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+    position: fixed; /* Fix the video position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place the video behind other content */
+  }
+}
+
 
